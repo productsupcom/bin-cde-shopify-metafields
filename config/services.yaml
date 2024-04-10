@@ -5,18 +5,20 @@ services:
     _defaults:
         autowire: true
         autoconfigure: true
+        bind:
+            $subscriptionKeyHeader: '%env(SUBSCRIPTION_KEY_HEADER)%'
+            $apiToken: '%env(API_TOKEN)%'
+            $url: '%env(URL)%'
 
-    Productsup\BinCdeAppSkeleton\:
+    Productsup\BinCdeShopifyMetafields\:
         resource: '../src/'
         exclude:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-when@dev:
-    services:
-        Productsup\DK\Connector\Application\Feed\OutputFeedForImport: '@Productsup\DK\Connector\Infrastructure\Feed\File\FileOutputFeedForImport'
-        Productsup\DK\Connector\Application\Feed\OutputFeedForExport: '@Productsup\DK\Connector\Infrastructure\Feed\File\FileOutputFeedForExport'
-        Productsup\DK\Connector\Application\Feed\InputFeedForExportDelta: '@Productsup\DK\Connector\Infrastructure\Feed\File\FileInputFeedForExportDelta'
-        Productsup\DK\Connector\Application\Feed\InputFeedForExport: '@Productsup\DK\Connector\Infrastructure\Feed\File\FileInputFeedForExport'
-        Productsup\DK\Connector\Application\Logger\ConnectorLogger: '@Productsup\DK\Connector\Infrastructure\Logger\StandardLogger'
+    GuzzleHttp\HandlerStack:
+        factory: [ 'GuzzleHttp\HandlerStack', 'create' ]
+
+    GuzzleHttp\ClientInterface:
+        factory: [ '@Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\ClientFactory', 'make' ]
