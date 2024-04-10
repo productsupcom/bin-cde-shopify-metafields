@@ -23,7 +23,7 @@
         "symfony/flex": "^2",
         "symfony/framework-bundle": "6.4.*",
         "symfony/messenger": "6.4.*",
-        "symfony/runtime": "6.4.*",
+        "symfony/runtime": "7.0.*",
         "symfony/yaml": "6.4.*"
     },
     "require-dev": {
