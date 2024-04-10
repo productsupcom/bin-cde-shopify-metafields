@@ -1,0 +1,21 @@
+/vendor
+/files
+/tests/logs
+/var
+.phpunit.result.cache
+.php_cs.cache
+
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
+
+
+###> symfony/framework-bundle ###
+/.env.dev
+/.env.local
+/templates
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+###< symfony/framework-bundle ###

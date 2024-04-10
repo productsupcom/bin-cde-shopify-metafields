@@ -1,0 +1,19 @@
+# auto merge security patches (as reported by dependabot)
+- match:
+    dependency_type: all
+    update_type: security:patch
+
+# auto merge PATCH semver updates for any package
+- match:
+    dependency_type: all
+    update_type: semver:patch
+
+# auto merge MINOR semver updates for productsupcom packages (trusted)
+- match:
+    dependency_name: "#^productsupcom/.*#"
+    update_type: semver:minor
+
+# auto merge MINOR semver updates for symfony packages (trusted)
+- match:
+    dependency_name: "#^symfony/.*#"
+    update_type: semver:minor
