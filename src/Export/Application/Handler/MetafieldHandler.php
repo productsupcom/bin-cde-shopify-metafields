@@ -1,0 +1,28 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Productsup\BinCdeShopifyMetafields\Export\Application\Handler;
+
+use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Uploader\MetafieldUploader;
+use Productsup\DK\Connector\Application\Progress\CountableProgressHandler;
+use Traversable;
+
+class MetafieldHandler
+{
+    public function __construct(
+        private MetafieldUploader $uploader,
+        private CountableProgressHandler $progressHandler,
+    ) {
+    }
+
+    public function handle(Traversable $feed): void
+    {
+        foreach ($feed as $item) {
+            var_dump($item);
+            $this->uploader->sendBuffered($item);
+            $this->progressHandler->progress($this->uploader->getSentItemsCounter());
+        }
+        $this->uploader->sendAll();
+    }
+}

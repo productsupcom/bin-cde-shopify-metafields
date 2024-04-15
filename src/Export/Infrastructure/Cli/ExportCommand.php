@@ -11,16 +11,16 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
-    name: 'import',
+    name: 'export',
     description: 'Importer Occupancies from Proton API',
-    aliases: ['import'],
+    aliases: ['export'],
     hidden: false
 )]
 final class ExportCommand extends Command
 {
     public function __construct(
         private readonly Exporter $exporter,
-        string                    $name = null
+        string $name = null
     ) {
         parent::__construct($name);
     }

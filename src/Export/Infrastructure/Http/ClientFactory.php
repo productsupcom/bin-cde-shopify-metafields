@@ -13,7 +13,9 @@ final class ClientFactory
 
     public function __construct(
         private HandlerStack $stack,
-        private string $url
+        private string $url,
+        private string $username,
+        private string $password,
     ) {
     }
 
@@ -24,6 +26,7 @@ final class ClientFactory
             'base_uri' => $this->url,
             'connect_timeout' => self::TIMEOUT,
             'timeout' => self::TIMEOUT,
+            //'auth' => [$this->username, $this->password],
         ]);
     }
 }

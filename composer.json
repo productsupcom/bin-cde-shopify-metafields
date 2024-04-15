@@ -34,7 +34,7 @@
         "phpstan/phpstan": "^1.8",
         "phpunit/phpunit": "^10",
         "roave/security-advisories": "dev-latest",
-        "symfony/phpunit-bridge": "^6.4"
+        "symfony/phpunit-bridge": "7.*"
     },
     "config": {
         "allow-plugins": {
@@ -87,7 +87,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.4.*"
+            "require": "7.*"
         }
     }
 }
