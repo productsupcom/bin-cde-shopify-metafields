@@ -9,6 +9,7 @@ use GuzzleHttp\Exception\BadResponseException;
 use Productsup\BinCdeShopifyMetafields\Export\Application\Feedback\Feedback;
 use Productsup\BinCdeShopifyMetafields\Export\Builder\ContentBuilder;
 use Productsup\DK\Connector\Application\Output\Feedback\FeedbackHandler;
+use Productsup\DK\Connector\Exception\BadRequest;
 
 class MetafieldUploader
 {
@@ -22,16 +23,7 @@ class MetafieldUploader
     public function sendBuffered(array $metafield): void
     {
         $buffer = $this->getBuffer();
-        var_dump($metafield);
-        // {
-        //  'ownerId' =>
-        //  string(13) "9093023138093"
-        //  'my_fields@materials@multi_line_text_field' =>
-        //  string(22) "00% Cotton\n5% Spandex"
-        //  'my_fields@manufactured@multi_line_text_field' =>
-        //  string(16) "Made in Chinaasd"
-        //}
-        //send this array to buffer but every column should be a row in buffer except ownerId
+
         foreach ($metafield as $key => $value) {
             if ('ownerId' === $key) {
                 continue;
@@ -39,7 +31,6 @@ class MetafieldUploader
             $buffer->push($metafield['ownerId'], $key, $value);
         }
 
-        var_dump($this->buffer->getData($metafield['ownerId']));
         if ($buffer->isFull($metafield['ownerId'])) {
             $this->send((string)$metafield['ownerId']);
         }
@@ -50,7 +41,6 @@ class MetafieldUploader
         $buffer = $this->getBuffer();
 
         foreach ($buffer->getBufferKeys() as $metafield) {
-            var_dump($metafield);
             $this->send((string)$metafield);
         }
 
@@ -70,7 +60,6 @@ class MetafieldUploader
 
         $data = $buffer->getData($metafield);
         $content = $this->contentBuilder->build($data, $metafield);
-        var_dump($content);
 
         try {
             $response = $this->client->request('POST', '/admin/api/2024-01/graphql.json', [
@@ -80,11 +69,17 @@ class MetafieldUploader
                     'Authorization' => 'Basic YjViOGRmYThiNWNmMjg2MTJiZjVkYWIzMDI5MTgxMzM6c2hwYXRfYzFmNmE2ZTBmOTY3N2ZmMGU5OGMxNjlkODk1ZDkxZGE=',
                 ],
             ]);
-            var_dump($response->getBody()->getContents());
+            $responseData = json_decode($response->getBody()->getContents(), true);
+
+            if (isset($responseData['data']['metafieldsSet']['userErrors'])) {
+                foreach ($responseData['data']['metafieldsSet']['userErrors'] as $error) {
+                    $this->feedbackHandler->handle(new Feedback($data, $metafield, $error['message'].' '.$error['code']));
+                }
+            } else {
+                $this->feedbackHandler->handle(new Feedback($data, $metafield, ''));
+            }
         } catch (BadResponseException $e) {
-            var_dump($e->getMessage());die;
-            $this->feedbackHandler->handle(new Feedback($data, $metafield, $e->getMessage()));
-            $response = [];
+            throw BadRequest::dueToPrevious($e);
         }
         $this->itemCounter++;
         //to do response handler
