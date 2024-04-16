@@ -11,8 +11,9 @@ use Productsup\DK\Connector\Application\Logger\ConnectorFinished;
 use Productsup\DK\Connector\Application\Logger\ConnectorLogger;
 use Productsup\DK\Connector\Application\Logger\ConnectorStarted;
 use Productsup\DK\Connector\Application\Logger\EmptyInput;
+use Productsup\DK\Connector\Application\Output\Feedback\FeedbackHandler;
 use Productsup\DK\Connector\Exception\File\FileNotFound;
-use Symfony\Component\Messenger\MessageBusInterface;
+use Productsup\DK\Connector\Exception\NotAllContentUploaded;
 
 final readonly class Exporter
 {
@@ -21,7 +22,7 @@ final readonly class Exporter
         private InputFeedForExportDelta $inputFeedForExport,
         private ConnectorLogger $logger,
         private MetafieldHandler $handler,
-        private readonly MessageBusInterface $messageBus,
+        private FeedbackHandler $feedbackHandler,
     ) {
     }
 
@@ -34,14 +35,18 @@ final readonly class Exporter
         try {
             $this->handler->handle($this->inputFeedForExport->yieldBufferedFromNew());
         } catch (FileNotFound) {
-            $this->messageBus->dispatch(EmptyInput::fromName('new'));
-
+            $this->logger->debug(EmptyInput::fromName('new'));
         }
 
         try {
             $this->handler->handle($this->inputFeedForExport->yieldBufferedFromModified());
         } catch (FileNotFound) {
-            $this->messageBus->dispatch(EmptyInput::fromName('modified'));
+            $this->logger->debug(EmptyInput::fromName('modified'));
+        }
+        if ($this->feedbackHandler->feedbackExists()) {
+            $this->feedbackHandler->end();
+
+            throw NotAllContentUploaded::create();
         }
 
         $this->logger->success(ConnectorFinished::fromName('bin-cde-shopify-metafields'));
