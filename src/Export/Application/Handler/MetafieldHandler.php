@@ -19,7 +19,6 @@ class MetafieldHandler
     public function handle(Traversable $feed): void
     {
         foreach ($feed as $item) {
-            var_dump($item);
             $this->uploader->sendBuffered($item);
             $this->progressHandler->progress($this->uploader->getSentItemsCounter());
         }
