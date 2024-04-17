@@ -26,7 +26,7 @@ final class ClientFactory
             'base_uri' => $this->url,
             'connect_timeout' => self::TIMEOUT,
             'timeout' => self::TIMEOUT,
-            //'auth' => [$this->username, $this->password],
+            'auth' => [$this->username, $this->password],
         ]);
     }
 }
