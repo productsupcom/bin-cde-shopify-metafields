@@ -6,17 +6,16 @@ namespace Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Uploader;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\BadResponseException;
-use Productsup\BinCdeShopifyMetafields\Export\Application\Feedback\Feedback;
 use Productsup\BinCdeShopifyMetafields\Export\Builder\ContentBuilder;
-use Productsup\DK\Connector\Application\Output\Feedback\FeedbackHandler;
-use Productsup\DK\Connector\Exception\BadRequest;
+use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\Response\Handler;
+use Productsup\DK\Connector\Exception\AuthorizationFailed;
 
 class MetafieldUploader
 {
     private DataBuffer $buffer;
     private bool $isBufferSent = false;
     private int $itemCounter = 0;
-    public function __construct(private readonly ContentBuilder $contentBuilder, private readonly ClientInterface $client, private readonly FeedbackHandler $feedbackHandler, private readonly int $bufferSize)
+    public function __construct(private readonly ContentBuilder $contentBuilder, private readonly ClientInterface $client, private readonly Handler $responseHandlear, private readonly int $bufferSize)
     {
     }
 
@@ -66,23 +65,13 @@ class MetafieldUploader
                 'json' => $content,
                 'headers' => [
                     'Content-Type' => 'application/json',
-                    'Authorization' => 'Basic YjViOGRmYThiNWNmMjg2MTJiZjVkYWIzMDI5MTgxMzM6c2hwYXRfYzFmNmE2ZTBmOTY3N2ZmMGU5OGMxNjlkODk1ZDkxZGE=',
                 ],
             ]);
-            $responseData = json_decode($response->getBody()->getContents(), true);
-
-            if (isset($responseData['data']['metafieldsSet']['userErrors'])) {
-                foreach ($responseData['data']['metafieldsSet']['userErrors'] as $error) {
-                    $this->feedbackHandler->handle(new Feedback($data, $metafield, $error['message'].' '.$error['code']));
-                }
-            } else {
-                $this->feedbackHandler->handle(new Feedback($data, $metafield, ''));
-            }
+            $this->responseHandlear->handle(json_decode($response->getBody()->getContents(), true), $data, $metafield);
         } catch (BadResponseException $e) {
-            throw BadRequest::dueToPrevious($e);
+            throw AuthorizationFailed::dueToPrevious($e);
         }
         $this->itemCounter++;
-        //to do response handler
     }
     private function getBuffer(): DataBuffer
     {
