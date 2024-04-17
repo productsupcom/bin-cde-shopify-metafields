@@ -7,16 +7,20 @@ namespace Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Uploader;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\BadResponseException;
 use Productsup\BinCdeShopifyMetafields\Export\Builder\ContentBuilder;
+use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\Exception\Handler as ExceptionHandler;
 use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\Response\Handler;
-use Productsup\DK\Connector\Exception\AuthorizationFailed;
 
 class MetafieldUploader
 {
     private DataBuffer $buffer;
-    private bool $isBufferSent = false;
     private int $itemCounter = 0;
-    public function __construct(private readonly ContentBuilder $contentBuilder, private readonly ClientInterface $client, private readonly Handler $responseHandlear, private readonly int $bufferSize)
-    {
+    public function __construct(
+        private readonly ContentBuilder $contentBuilder,
+        private readonly ClientInterface $client,
+        private readonly Handler $responseHandler,
+        private readonly int $bufferSize,
+        private readonly ExceptionHandler $exceptionHandler
+    ) {
     }
 
     public function sendBuffered(array $metafield): void
@@ -67,9 +71,9 @@ class MetafieldUploader
                     'Content-Type' => 'application/json',
                 ],
             ]);
-            $this->responseHandlear->handle(json_decode($response->getBody()->getContents(), true), $data, $metafield);
+            $this->responseHandler->handle(json_decode($response->getBody()->getContents(), true), $data, $metafield);
         } catch (BadResponseException $e) {
-            throw AuthorizationFailed::dueToPrevious($e);
+            $this->exceptionHandler->handle($e);
         }
         $this->itemCounter++;
     }
