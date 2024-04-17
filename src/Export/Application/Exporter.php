@@ -17,6 +17,7 @@ use Productsup\DK\Connector\Exception\NotAllContentUploaded;
 
 final readonly class Exporter
 {
+    private const NAME = 'bin-cde-shopify-metafields';
     public function __construct(
         private ParametersValidator $parametersValidator,
         private InputFeedForExportDelta $inputFeedForExport,
@@ -30,7 +31,7 @@ final readonly class Exporter
     {
         $this->parametersValidator->validate();
         //todo move name to a constant or a parameter
-        $this->logger->info(ConnectorStarted::fromName('bin-cde-shopify-metafields'));
+        $this->logger->info(ConnectorStarted::fromName(self::NAME));
 
         try {
             $this->handler->handle($this->inputFeedForExport->yieldBufferedFromNew());
@@ -49,6 +50,6 @@ final readonly class Exporter
             throw NotAllContentUploaded::create();
         }
 
-        $this->logger->success(ConnectorFinished::fromName('bin-cde-shopify-metafields'));
+        $this->logger->success(ConnectorFinished::fromName(self::NAME));
     }
 }
