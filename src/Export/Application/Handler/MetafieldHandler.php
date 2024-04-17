@@ -11,7 +11,7 @@ use Traversable;
 final readonly class MetafieldHandler
 {
     public function __construct(
-        private MetafieldUploader        $uploader,
+        private MetafieldUploader $uploader,
         private CountableProgressHandler $progressHandler,
     ) {
     }
