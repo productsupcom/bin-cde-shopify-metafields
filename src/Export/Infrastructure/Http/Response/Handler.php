@@ -7,7 +7,7 @@ namespace Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\Response
 use Productsup\BinCdeShopifyMetafields\Export\Application\Feedback\Feedback;
 use Productsup\DK\Connector\Application\Output\Feedback\FeedbackHandler;
 
-class Handler
+final readonly class Handler
 {
     public function __construct(
         private FeedbackHandler $feedbackHandler

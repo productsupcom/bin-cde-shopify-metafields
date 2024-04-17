@@ -7,7 +7,7 @@ namespace Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 
-final class ClientFactory
+final readonly class ClientFactory
 {
     private const TIMEOUT = 10.0;
 

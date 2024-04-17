@@ -10,7 +10,7 @@ use Productsup\BinCdeShopifyMetafields\Export\Builder\ContentBuilder;
 use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\Exception\Handler as ExceptionHandler;
 use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\Response\Handler;
 
-class MetafieldUploader
+final class MetafieldUploader
 {
     private DataBuffer $buffer;
     private int $itemCounter = 0;

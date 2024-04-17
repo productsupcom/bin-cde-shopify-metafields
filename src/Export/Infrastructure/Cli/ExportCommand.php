@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
     name: 'export',
-    description: 'Importer Occupancies from Proton API',
+    description: 'Export metafields to Shopify.',
     aliases: ['export'],
     hidden: false
 )]

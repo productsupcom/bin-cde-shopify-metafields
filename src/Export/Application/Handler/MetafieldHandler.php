@@ -8,10 +8,10 @@ use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Uploader\MetafieldU
 use Productsup\DK\Connector\Application\Progress\CountableProgressHandler;
 use Traversable;
 
-class MetafieldHandler
+final readonly class MetafieldHandler
 {
     public function __construct(
-        private MetafieldUploader $uploader,
+        private MetafieldUploader        $uploader,
         private CountableProgressHandler $progressHandler,
     ) {
     }

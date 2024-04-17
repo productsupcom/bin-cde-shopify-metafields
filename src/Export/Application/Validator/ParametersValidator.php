@@ -9,7 +9,7 @@ use Productsup\BinCdeShopifyMetafields\Export\Application\Validator\Exception\Mi
 final class ParametersValidator
 {
     public function __construct(
-        private string $apiToken
+        private readonly string $apiToken
     ) {
     }
 
