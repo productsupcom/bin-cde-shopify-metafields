@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Productsup\BinCdeShopifyMetafields\Export\Builder;
+namespace Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\Builder;
 
 class ContentBuilder
 {

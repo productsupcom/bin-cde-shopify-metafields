@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Productsup\BinCdeShopifyMetafields\Export\Application\Handler;
 
-use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Uploader\MetafieldUploader;
+use Productsup\BinCdeShopifyMetafields\Export\Domain\Http\Uploader\MetafieldUploaderInterface;
 use Productsup\DK\Connector\Application\Progress\CountableProgressHandler;
 use Traversable;
 
 final readonly class MetafieldHandler
 {
     public function __construct(
-        private MetafieldUploader $uploader,
-        private CountableProgressHandler $progressHandler,
+        private MetafieldUploaderInterface $uploader,
+        private CountableProgressHandler   $progressHandler,
     ) {
     }
 

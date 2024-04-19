@@ -6,18 +6,19 @@ namespace Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Uploader;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\BadResponseException;
-use Productsup\BinCdeShopifyMetafields\Export\Builder\ContentBuilder;
-use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\Exception\Handler as ExceptionHandler;
-use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\Response\Handler;
+use Productsup\BinCdeShopifyMetafields\Export\Domain\Http\Uploader\MetafieldUploaderInterface;
+use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\Builder\ContentBuilder;
+use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\Exception\ExceptionHandler;
+use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\Response\ResponseHandler;
 
-final class MetafieldUploader
+final class MetafieldUploader implements MetafieldUploaderInterface
 {
     private DataBuffer $buffer;
     private int $itemCounter = 0;
     public function __construct(
         private readonly ContentBuilder $contentBuilder,
         private readonly ClientInterface $client,
-        private readonly Handler $responseHandler,
+        private readonly ResponseHandler $responseHandler,
         private readonly int $bufferSize,
         private readonly ExceptionHandler $exceptionHandler
     ) {
@@ -49,10 +50,12 @@ final class MetafieldUploader
 
         $buffer->resetAll();
     }
+
     public function getSentItemsCounter(): int
     {
         return $this->itemCounter;
     }
+
     private function send(string $metafield): void
     {
         $buffer = $this->getBuffer();
@@ -77,6 +80,7 @@ final class MetafieldUploader
         }
         $this->itemCounter++;
     }
+
     private function getBuffer(): DataBuffer
     {
         if (!isset($this->buffer)) {
