@@ -10,8 +10,8 @@ services:
             $apiToken: '%env(API_TOKEN)%'
             $url: '%env(URL)%'
             $bufferSize: 25
-            $username: ''
-            $password: ''
+            $username: '%env(USERNAME)%'
+            $password: '%env(PASSWORD)%'
 
     Productsup\BinCdeShopifyMetafields\:
         resource: '../src/'
