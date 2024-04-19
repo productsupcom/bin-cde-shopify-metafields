@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Productsup\BinCdeShopifyMetafields\Export\Domain\Http\Uploader;
 
 interface MetafieldUploaderInterface

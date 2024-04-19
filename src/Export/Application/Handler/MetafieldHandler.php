@@ -12,7 +12,7 @@ final readonly class MetafieldHandler
 {
     public function __construct(
         private MetafieldUploaderInterface $uploader,
-        private CountableProgressHandler   $progressHandler,
+        private CountableProgressHandler $progressHandler,
     ) {
     }
 
