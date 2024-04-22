@@ -6,8 +6,6 @@ services:
         autowire: true
         autoconfigure: true
         bind:
-            $subscriptionKeyHeader: '%env(SUBSCRIPTION_KEY_HEADER)%'
-            $apiToken: '%env(API_TOKEN)%'
             $url: '%env(URL)%'
             $bufferSize: 25
             $username: '%env(USERNAME)%'
