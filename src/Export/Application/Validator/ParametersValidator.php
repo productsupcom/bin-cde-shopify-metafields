@@ -9,14 +9,19 @@ use Productsup\BinCdeShopifyMetafields\Export\Application\Validator\Exception\Mi
 final class ParametersValidator
 {
     public function __construct(
-        private readonly string $apiToken
+        private readonly string $username,
+        private readonly string $password,
     ) {
     }
 
     public function validate(): void
     {
-        if (empty($this->apiToken)) {
-            throw MissingParameter::apiToken();
+        if (empty($this->username)) {
+            throw MissingParameter::username();
+        }
+
+        if (empty($this->password)) {
+            throw MissingParameter::password();
         }
     }
 }
