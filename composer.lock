@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb547bcab27b615f13f900d9e471e18f",
+    "content-hash": "416e8495e3bc8bb24665c1207a3d9929",
     "packages": [
         {
             "name": "brick/math",
@@ -1946,16 +1946,16 @@
         },
         {
             "name": "productsupcom/dk-core-bundle",
-            "version": "v0.0.1",
+            "version": "v0.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:productsupcom/dk-core-bundle.git",
-                "reference": "fd05a12af791deb7c09a94053df2eb80492284d5"
+                "reference": "ca8308034604834c0b6592f60dcadc4b6936a557"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/productsupcom/dk-core-bundle/zipball/fd05a12af791deb7c09a94053df2eb80492284d5",
-                "reference": "fd05a12af791deb7c09a94053df2eb80492284d5",
+                "url": "https://api.github.com/repos/productsupcom/dk-core-bundle/zipball/ca8308034604834c0b6592f60dcadc4b6936a557",
+                "reference": "ca8308034604834c0b6592f60dcadc4b6936a557",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2027,9 +2027,9 @@
                 "proprietary"
             ],
             "support": {
-                "source": "https://github.com/productsupcom/dk-core-bundle/tree/v0.0.1"
+                "source": "https://github.com/productsupcom/dk-core-bundle/tree/v0.0.2"
             },
-            "time": "2024-04-16T07:03:30+00:00"
+            "time": "2024-04-17T13:21:36+00:00"
         },
         {
             "name": "productsupcom/lib-dk-core",
