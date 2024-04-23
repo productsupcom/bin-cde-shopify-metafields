@@ -14,6 +14,10 @@ class ContentBuilder
             $key = preg_match('/@([^@]*)@/', $arrayKey, $matches) ? $matches[1] : '';
             $type = preg_match('/@([^@]*)$/', $arrayKey, $matches) ? $matches[1] : '';
 
+            if (empty($key) || empty($namespace) || empty($type)) {
+                continue;
+            }
+
             $variables[] = [
                 'key' => $key,
                 'namespace' => $namespace,
