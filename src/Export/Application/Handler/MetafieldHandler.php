@@ -21,8 +21,6 @@ final readonly class MetafieldHandler
     public function handle(Traversable $feed): void
     {
         foreach ($feed as $item) {
-            $this->logger->debug('Sending item to the uploader');
-            $this->logger->debug(json_encode($item, JSON_PRETTY_PRINT));
             $this->uploader->sendBuffered($item);
             $this->progressHandler->progress($this->uploader->getSentItemsCounter());
         }

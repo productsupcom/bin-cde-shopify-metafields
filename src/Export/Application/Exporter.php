@@ -30,7 +30,6 @@ final readonly class Exporter
     public function export(): void
     {
         $this->parametersValidator->validate();
-        //todo move name to a constant or a parameter
         $this->logger->info(ConnectorStarted::fromName(self::NAME));
 
         try {

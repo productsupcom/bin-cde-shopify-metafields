@@ -10,7 +10,6 @@ use Productsup\BinCdeShopifyMetafields\Export\Domain\Http\Uploader\MetafieldUplo
 use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\Builder\ContentBuilder;
 use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\Exception\ExceptionHandler;
 use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\Response\ResponseHandler;
-use Productsup\DK\Connector\Application\Logger\ConnectorLogger;
 
 final class MetafieldUploader implements MetafieldUploaderInterface
 {
@@ -22,7 +21,6 @@ final class MetafieldUploader implements MetafieldUploaderInterface
         private readonly ResponseHandler $responseHandler,
         private readonly int $bufferSize,
         private readonly ExceptionHandler $exceptionHandler,
-        private ConnectorLogger $logger,
     ) {
     }
 
@@ -68,7 +66,7 @@ final class MetafieldUploader implements MetafieldUploaderInterface
 
         $data = $buffer->getData($metafield);
         $content = $this->contentBuilder->build($data, $metafield);
-        $this->logger->debug(json_encode($content, JSON_PRETTY_PRINT));
+
         try {
             $response = $this->client->request('POST', '/admin/api/2024-01/graphql.json', [
                 'json' => $content,
