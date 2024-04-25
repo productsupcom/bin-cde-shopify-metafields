@@ -26,6 +26,7 @@ services:
 
     Productsup\DK\Connector\Application\Progress\CountableProgressHandler: ~
 
+    Productsup\DK\Connector\Application\Output\Feedback\FeedbackDetails: '@Productsup\BinCdeShopifyMetafields\Export\Application\Feedback\Feedback'
 
 when@dev:
     services:

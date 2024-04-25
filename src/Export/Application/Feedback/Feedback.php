@@ -15,7 +15,7 @@ final readonly class Feedback implements FeedbackDetails
     public function build(): array
     {
         return [
-            'ownerId' => $this->ownerId,
+            'id' => $this->ownerId,
             'metafield' => json_encode($this->metafield),
             'error_message' => $this->errorMessage,
         ];
