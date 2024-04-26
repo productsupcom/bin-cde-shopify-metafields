@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Productsup\BinCdeShopifyMetafields\Export\Application\Handler;
 
 use Productsup\BinCdeShopifyMetafields\Export\Domain\Http\Uploader\MetafieldUploaderInterface;
-use Productsup\DK\Connector\Application\Logger\ConnectorLogger;
 use Productsup\DK\Connector\Application\Progress\CountableProgressHandler;
 use Traversable;
 
