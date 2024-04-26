@@ -8,7 +8,7 @@ use Productsup\DK\Connector\Application\Output\Feedback\FeedbackDetails;
 
 final readonly class Feedback implements FeedbackDetails
 {
-    public function __construct(private array $metafield, private string $ownerId, private string $errorMessage)
+    public function __construct(private string $metafield, private string $ownerId, private string $errorMessage)
     {
     }
 
@@ -16,7 +16,7 @@ final readonly class Feedback implements FeedbackDetails
     {
         return [
             'id' => $this->ownerId,
-            'metafield' => json_encode($this->metafield),
+            'metafield' => $this->metafield,
             'error_message' => $this->errorMessage,
         ];
     }

@@ -6,10 +6,12 @@ namespace Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Uploader;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\BadResponseException;
+use JsonException;
 use Productsup\BinCdeShopifyMetafields\Export\Domain\Http\Uploader\MetafieldUploaderInterface;
 use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\Builder\ContentBuilder;
 use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\Exception\ExceptionHandler;
 use Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\Response\ResponseHandler;
+use Productsup\DK\Connector\Exception\JsonParsingFailed;
 
 final class MetafieldUploader implements MetafieldUploaderInterface
 {
@@ -74,9 +76,11 @@ final class MetafieldUploader implements MetafieldUploaderInterface
                     'Content-Type' => 'application/json',
                 ],
             ]);
-            $this->responseHandler->handle(json_decode($response->getBody()->getContents(), true), $data, $metafield);
+            $this->responseHandler->handle(json_decode(json: $response->getBody()->getContents(), associative: true, flags: JSON_THROW_ON_ERROR), $data, $metafield);
         } catch (BadResponseException $e) {
             $this->exceptionHandler->handle($e);
+        } catch (JsonException $e) {
+            throw JsonParsingFailed::dueToPrevious($e);
         }
         $this->itemCounter++;
     }
