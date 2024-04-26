@@ -1,17 +1,32 @@
 parameters:
     .container.dumper.inline_factories: true
-
+    feedback_columns: [ 'id','error_message', 'metafield']
 services:
     _defaults:
         autowire: true
         autoconfigure: true
+        bind:
+            $url: '%env(URL)%'
+            $bufferSize: 25
+            $username: '%env(USERNAME)%'
+            $password: '%env(PASSWORD)%'
 
-    Productsup\BinCdeAppSkeleton\:
+    Productsup\BinCdeShopifyMetafields\:
         resource: '../src/'
         exclude:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+
+    GuzzleHttp\HandlerStack:
+        factory: [ 'GuzzleHttp\HandlerStack', 'create' ]
+
+    GuzzleHttp\ClientInterface:
+        factory: [ '@Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Http\ClientFactory', 'make' ]
+
+    Productsup\DK\Connector\Application\Progress\CountableProgressHandler: ~
+
+    Productsup\DK\Connector\Application\Output\Feedback\FeedbackDetails: '@Productsup\BinCdeShopifyMetafields\Export\Application\Feedback\Feedback'
 
 when@dev:
     services:

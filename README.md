@@ -1,1 +1,1 @@
-# bin-cde-app-skeleton
+# bin-cde-shopify-metafields

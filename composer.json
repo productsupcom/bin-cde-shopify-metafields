@@ -16,15 +16,16 @@
         "php": ">=8.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "productsupcom/dk-core-bundle": "dev-main",
-        "productsupcom/lib-dk-testing": "dev-main",
-        "symfony/console": "6.4.*",
-        "symfony/dotenv": "6.4.*",
+        "productsupcom/dk-core-bundle": "v0.0.*",
+        "productsupcom/lib-dk-testing": "v0.0.*",
+        "symfony/console": "7.*",
+        "symfony/dotenv": "7.*",
         "symfony/flex": "^2",
-        "symfony/framework-bundle": "6.4.*",
-        "symfony/messenger": "6.4.*",
-        "symfony/runtime": "6.4.*",
-        "symfony/yaml": "6.4.*"
+        "symfony/framework-bundle": "7.*",
+        "symfony/messenger": "7.*",
+        "symfony/runtime": "7.*",
+        "symfony/yaml": "7.*",
+        "symfony/http-kernel": "7.*"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.3",
@@ -33,7 +34,7 @@
         "phpstan/phpstan": "^1.8",
         "phpunit/phpunit": "^10",
         "roave/security-advisories": "dev-latest",
-        "symfony/phpunit-bridge": "^6.4"
+        "symfony/phpunit-bridge": "7.*"
     },
     "config": {
         "allow-plugins": {
@@ -45,12 +46,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Productsup\\BinCdeAppSkeleton\\": "src/"
+            "Productsup\\BinCdeShopifyMetafields\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Productsup\\BinCdeAppSkeleton\\Tests\\": "tests/"
+            "Productsup\\BinCdeShopifyMetafields\\Tests\\": "tests/"
         }
     },
     "replace": {
@@ -86,7 +87,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.4.*"
+            "require": "7.*"
         }
     }
 }

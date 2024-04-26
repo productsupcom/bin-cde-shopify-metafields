@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Productsup\BinCdeAppSkeleton\Import\Infrastructure\Cli;
+namespace Productsup\BinCdeShopifyMetafields\Export\Infrastructure\Cli;
 
-use Productsup\BinCdeAppSkeleton\Import\Application\Importer;
+use Productsup\BinCdeShopifyMetafields\Export\Application\Exporter;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
-    name: 'import',
-    description: 'Sample import command',
-    aliases: ['import'],
+    name: 'export',
+    description: 'Export metafields to Shopify.',
+    aliases: ['export'],
     hidden: false
 )]
-final class ImportCommand extends Command
+final class ExportCommand extends Command
 {
     public function __construct(
-        private Importer $importer,
+        private readonly Exporter $exporter,
         string $name = null
     ) {
         parent::__construct($name);
@@ -27,7 +27,7 @@ final class ImportCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->importer->import();
+        $this->exporter->export();
 
         return Command::SUCCESS;
     }
