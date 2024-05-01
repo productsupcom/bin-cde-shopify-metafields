@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "brick/math",
-            "version": "0.11.0",
+            "version": "0.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/brick/math.git",
-                "reference": "0ad82ce168c82ba30d1c01ec86116ab52f589478"
+                "reference": "f510c0a40911935b77b86859eb5223d58d660df1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brick/math/zipball/0ad82ce168c82ba30d1c01ec86116ab52f589478",
-                "reference": "0ad82ce168c82ba30d1c01ec86116ab52f589478",
+                "url": "https://api.github.com/repos/brick/math/zipball/f510c0a40911935b77b86859eb5223d58d660df1",
+                "reference": "f510c0a40911935b77b86859eb5223d58d660df1",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -27,12 +27,12 @@
                 ]
             },
             "require": {
-                "php": "^8.0"
+                "php": "^8.1"
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^2.2",
-                "phpunit/phpunit": "^9.0",
-                "vimeo/psalm": "5.0.0"
+                "phpunit/phpunit": "^10.1",
+                "vimeo/psalm": "5.16.0"
             },
             "type": "library",
             "autoload": {
@@ -52,12 +52,17 @@
                 "arithmetic",
                 "bigdecimal",
                 "bignum",
+                "bignumber",
                 "brick",
-                "math"
+                "decimal",
+                "integer",
+                "math",
+                "mathematics",
+                "rational"
             ],
             "support": {
                 "issues": "https://github.com/brick/math/issues",
-                "source": "https://github.com/brick/math/tree/0.11.0"
+                "source": "https://github.com/brick/math/tree/0.12.1"
             },
             "funding": [
                 {
@@ -65,7 +70,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-15T23:15:59+00:00"
+            "time": "2023-11-29T23:19:16+00:00"
         },
         {
             "name": "clue/stream-filter",
@@ -2111,16 +2116,16 @@
         },
         {
             "name": "productsupcom/lib-dk-testing",
-            "version": "v0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:productsupcom/lib-dk-testing.git",
-                "reference": "6087c49ee0e4156fa55e59bf037bdcfe7d72d37b"
+                "reference": "b6fb189dc6a52f9c7cd3d5abc0cf45422010fc17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/productsupcom/lib-dk-testing/zipball/6087c49ee0e4156fa55e59bf037bdcfe7d72d37b",
-                "reference": "6087c49ee0e4156fa55e59bf037bdcfe7d72d37b",
+                "url": "https://api.github.com/repos/productsupcom/lib-dk-testing/zipball/b6fb189dc6a52f9c7cd3d5abc0cf45422010fc17",
+                "reference": "b6fb189dc6a52f9c7cd3d5abc0cf45422010fc17",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2183,9 +2188,9 @@
                 "proprietary"
             ],
             "support": {
-                "source": "https://github.com/productsupcom/lib-dk-testing/tree/v0.0.2"
+                "source": "https://github.com/productsupcom/lib-dk-testing/tree/0.0.3"
             },
-            "time": "2024-04-23T11:01:31+00:00"
+            "time": "2024-04-30T07:16:47+00:00"
         },
         {
             "name": "productsupcom/lib-sqlite",
@@ -2879,16 +2884,16 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "4.7.5",
+            "version": "4.7.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "5f0df49ae5ad6efb7afa69e6bfab4e5b1e080d8e"
+                "reference": "91039bc1faa45ba123c4328958e620d382ec7088"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/5f0df49ae5ad6efb7afa69e6bfab4e5b1e080d8e",
-                "reference": "5f0df49ae5ad6efb7afa69e6bfab4e5b1e080d8e",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/91039bc1faa45ba123c4328958e620d382ec7088",
+                "reference": "91039bc1faa45ba123c4328958e620d382ec7088",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2898,7 +2903,7 @@
                 ]
             },
             "require": {
-                "brick/math": "^0.8.8 || ^0.9 || ^0.10 || ^0.11",
+                "brick/math": "^0.8.8 || ^0.9 || ^0.10 || ^0.11 || ^0.12",
                 "ext-json": "*",
                 "php": "^8.0",
                 "ramsey/collection": "^1.2 || ^2.0"
@@ -2961,7 +2966,7 @@
             ],
             "support": {
                 "issues": "https://github.com/ramsey/uuid/issues",
-                "source": "https://github.com/ramsey/uuid/tree/4.7.5"
+                "source": "https://github.com/ramsey/uuid/tree/4.7.6"
             },
             "funding": [
                 {
@@ -2973,7 +2978,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-11-08T05:53:05+00:00"
+            "time": "2024-04-27T21:32:50+00:00"
         },
         {
             "name": "symfony/cache",
@@ -4566,16 +4571,16 @@
         },
         {
             "name": "symfony/options-resolver",
-            "version": "v7.0.0",
+            "version": "v7.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
-                "reference": "700ff4096e346f54cb628ea650767c8130f1001f"
+                "reference": "23cc173858776ad451e31f053b1c9f47840b2cfa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/700ff4096e346f54cb628ea650767c8130f1001f",
-                "reference": "700ff4096e346f54cb628ea650767c8130f1001f",
+                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/23cc173858776ad451e31f053b1c9f47840b2cfa",
+                "reference": "23cc173858776ad451e31f053b1c9f47840b2cfa",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4619,7 +4624,7 @@
                 "options"
             ],
             "support": {
-                "source": "https://github.com/symfony/options-resolver/tree/v7.0.0"
+                "source": "https://github.com/symfony/options-resolver/tree/v7.0.7"
             },
             "funding": [
                 {
@@ -4635,7 +4640,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-08-08T10:20:21+00:00"
+            "time": "2024-04-18T09:29:19+00:00"
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
@@ -5218,16 +5223,16 @@
         },
         {
             "name": "symfony/serializer",
-            "version": "v7.0.6",
+            "version": "v7.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
-                "reference": "dbdc0c04c28ac53de1fa35f92fca26e9b1345d98"
+                "reference": "08f0c517acf4b12dfc0d3963cd12f7b8023aea31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/serializer/zipball/dbdc0c04c28ac53de1fa35f92fca26e9b1345d98",
-                "reference": "dbdc0c04c28ac53de1fa35f92fca26e9b1345d98",
+                "url": "https://api.github.com/repos/symfony/serializer/zipball/08f0c517acf4b12dfc0d3963cd12f7b8023aea31",
+                "reference": "08f0c517acf4b12dfc0d3963cd12f7b8023aea31",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5299,7 +5304,7 @@
             "description": "Handles serializing and deserializing data structures, including object graphs, into array structures or other formats like XML and JSON.",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/serializer/tree/v7.0.6"
+                "source": "https://github.com/symfony/serializer/tree/v7.0.7"
             },
             "funding": [
                 {
@@ -5315,7 +5320,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-28T09:20:36+00:00"
+            "time": "2024-04-28T11:44:19+00:00"
         },
         {
             "name": "symfony/service-contracts",
@@ -5583,16 +5588,16 @@
         },
         {
             "name": "symfony/validator",
-            "version": "v7.0.6",
+            "version": "v7.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "a2df2c63b7944a162dee86ab8065f2f91b7d6e36"
+                "reference": "ab4e75b9d23ba70e78480aecbe4d8da15adf10eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/a2df2c63b7944a162dee86ab8065f2f91b7d6e36",
-                "reference": "a2df2c63b7944a162dee86ab8065f2f91b7d6e36",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/ab4e75b9d23ba70e78480aecbe4d8da15adf10eb",
+                "reference": "ab4e75b9d23ba70e78480aecbe4d8da15adf10eb",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5663,7 +5668,7 @@
             "description": "Provides tools to validate values",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/validator/tree/v7.0.6"
+                "source": "https://github.com/symfony/validator/tree/v7.0.7"
             },
             "funding": [
                 {
@@ -5679,7 +5684,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-28T09:20:36+00:00"
+            "time": "2024-04-28T11:44:19+00:00"
         },
         {
             "name": "symfony/var-dumper",
