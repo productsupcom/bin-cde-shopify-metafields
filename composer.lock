@@ -3166,16 +3166,16 @@
         },
         {
             "name": "symfony/clock",
-            "version": "v7.0.7",
+            "version": "v7.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/clock.git",
-                "reference": "2008671acb4a30b01c453de193cf9c80549ebda6"
+                "reference": "fe47b7cf6a68c045c37928aa89a39d5eb9a2b37c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/clock/zipball/2008671acb4a30b01c453de193cf9c80549ebda6",
-                "reference": "2008671acb4a30b01c453de193cf9c80549ebda6",
+                "url": "https://api.github.com/repos/symfony/clock/zipball/fe47b7cf6a68c045c37928aa89a39d5eb9a2b37c",
+                "reference": "fe47b7cf6a68c045c37928aa89a39d5eb9a2b37c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3226,7 +3226,7 @@
                 "time"
             ],
             "support": {
-                "source": "https://github.com/symfony/clock/tree/v7.0.7"
+                "source": "https://github.com/symfony/clock/tree/v7.1.0"
             },
             "funding": [
                 {
@@ -3242,7 +3242,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-18T09:29:19+00:00"
+            "time": "2024-04-18T09:32:20+00:00"
         },
         {
             "name": "symfony/config",
@@ -4479,16 +4479,16 @@
         },
         {
             "name": "symfony/messenger",
-            "version": "v7.0.7",
+            "version": "v7.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/messenger.git",
-                "reference": "90c217478f85d5289aae597551e2a4251e4d08c3"
+                "reference": "ed7bccfe31e7f0bdb5b101f48b6027622a7a48cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/messenger/zipball/90c217478f85d5289aae597551e2a4251e4d08c3",
-                "reference": "90c217478f85d5289aae597551e2a4251e4d08c3",
+                "url": "https://api.github.com/repos/symfony/messenger/zipball/ed7bccfe31e7f0bdb5b101f48b6027622a7a48cb",
+                "reference": "ed7bccfe31e7f0bdb5b101f48b6027622a7a48cb",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4551,7 +4551,7 @@
             "description": "Helps applications send and receive messages to/from other applications or via message queues",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/messenger/tree/v7.0.7"
+                "source": "https://github.com/symfony/messenger/tree/v7.0.8"
             },
             "funding": [
                 {
@@ -4567,7 +4567,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-18T09:29:19+00:00"
+            "time": "2024-05-31T14:55:39+00:00"
         },
         {
             "name": "symfony/options-resolver",
