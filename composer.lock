@@ -5138,7 +5138,7 @@
         },
         {
             "name": "symfony/runtime",
-            "version": "v7.0.7",
+            "version": "v7.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/runtime.git",
@@ -5203,7 +5203,7 @@
                 "runtime"
             ],
             "support": {
-                "source": "https://github.com/symfony/runtime/tree/v7.0.7"
+                "source": "https://github.com/symfony/runtime/tree/v7.1.0"
             },
             "funding": [
                 {
