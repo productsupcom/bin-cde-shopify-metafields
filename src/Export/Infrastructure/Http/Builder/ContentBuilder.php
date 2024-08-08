@@ -9,10 +9,10 @@ class ContentBuilder
     public function build(array $items, $ownerId): array
     {
         $variables = [];
-        foreach ($items as $arrayKey => $item) {
-            $namespace = preg_match('/^([^@]*)@/', $arrayKey, $matches) ? $matches[1] : '';
-            $key = preg_match('/@([^@]*)@/', $arrayKey, $matches) ? $matches[1] : '';
-            $type = preg_match('/@([^@]*)$/', $arrayKey, $matches) ? $matches[1] : '';
+        foreach ($items as $item) {
+            $namespace = preg_match('/^([^@]*)@/', $item['metafields'], $matches) ? $matches[1] : '';
+            $key = preg_match('/@([^@]*)@/', $item['metafields'], $matches) ? $matches[1] : '';
+            $type = preg_match('/@([^@]*)$/', $item['metafields'], $matches) ? $matches[1] : '';
 
             if (empty($key) || empty($namespace) || empty($type)) {
                 continue;
@@ -23,7 +23,7 @@ class ContentBuilder
                 'namespace' => $namespace,
                 'ownerId' => 'gid://shopify/Product/'.$ownerId,
                 'type' => $type,
-                'value' => $item,
+                'value' => $item['value'],
             ];
         }
 
