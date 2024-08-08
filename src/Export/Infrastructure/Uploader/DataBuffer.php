@@ -17,7 +17,7 @@ final class DataBuffer
         return new self($size);
     }
 
-    public function push(string $ownerId,  array $metafield): void
+    public function push(string $ownerId, array $metafield): void
     {
         $this->data[$ownerId][] = $metafield;
     }
