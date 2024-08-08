@@ -1,4 +1,4 @@
-FROM docker.productsup.com/cde/cde-php-cli-base:8.2
+FROM docker.productsup.com/cde/cde-php-cli-base:8.3
 
 COPY src/ ./src
 COPY config/ ./config

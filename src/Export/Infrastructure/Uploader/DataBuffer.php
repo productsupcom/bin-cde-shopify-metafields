@@ -17,9 +17,9 @@ final class DataBuffer
         return new self($size);
     }
 
-    public function push(string $ownerId, string $key, mixed $metafield): void
+    public function push(string $ownerId, array $metafield): void
     {
-        $this->data[$ownerId][$key] = $metafield;
+        $this->data[$ownerId][] = $metafield;
     }
 
     public function isFull(string $ownerId): bool

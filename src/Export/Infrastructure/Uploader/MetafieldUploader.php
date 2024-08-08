@@ -30,12 +30,7 @@ final class MetafieldUploader implements MetafieldUploaderInterface
     {
         $buffer = $this->getBuffer();
 
-        foreach ($metafield as $key => $value) {
-            if ('ownerId' === $key) {
-                continue;
-            }
-            $buffer->push($metafield['ownerId'], $key, $value);
-        }
+        $buffer->push($metafield['ownerId'], $metafield);
 
         if ($buffer->isFull($metafield['ownerId'])) {
             $this->send((string)$metafield['ownerId']);
