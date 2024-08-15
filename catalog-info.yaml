@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: productsupcom/bin-cde-shopify-metafields
+  description: Productsupcom/bin-cde-shopify-metafields
+  annotations:
+    github.com/project-slug:  productsupcom/productsupcom/bin-cde-shopify-metafields
+    jenkins.io/job-full-name: "Productsup/productsupcom/bin-cde-shopify-metafields
+spec:
+  type: service
+  lifecycle: experimental
+  consumesApis: 
+    - cde-api
