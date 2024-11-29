@@ -44,6 +44,7 @@ try {
     $arrayWithCombinedFields = array_unique($arrayWithCombinedFields);
     echo 'Found '.count($arrayWithCombinedFields).' unique metafields'.PHP_EOL;
     $i = 0;
+
     foreach ($arrayWithCombinedFields as $metaField) {
         $db = new SQLite3('metafields.db');
         $db->exec('CREATE TABLE IF NOT EXISTS metafields (namespace TEXT)');
