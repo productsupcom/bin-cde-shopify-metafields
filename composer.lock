@@ -2039,16 +2039,16 @@
         },
         {
             "name": "productsupcom/lib-dk-core",
-            "version": "0.0.18",
+            "version": "0.0.19",
             "source": {
                 "type": "git",
                 "url": "git@github.com:productsupcom/lib-dk-core.git",
-                "reference": "5d57a25177b49b57b4322749e775e7499b039aff"
+                "reference": "689109b9767f157d853781164d3efa0d6c618b1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/productsupcom/lib-dk-core/zipball/5d57a25177b49b57b4322749e775e7499b039aff",
-                "reference": "5d57a25177b49b57b4322749e775e7499b039aff",
+                "url": "https://api.github.com/repos/productsupcom/lib-dk-core/zipball/689109b9767f157d853781164d3efa0d6c618b1c",
+                "reference": "689109b9767f157d853781164d3efa0d6c618b1c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2111,22 +2111,22 @@
                 "proprietary"
             ],
             "support": {
-                "source": "https://github.com/productsupcom/lib-dk-core/tree/0.0.18"
+                "source": "https://github.com/productsupcom/lib-dk-core/tree/0.0.19"
             },
-            "time": "2024-11-29T12:57:56+00:00"
+            "time": "2024-12-05T15:18:19+00:00"
         },
         {
             "name": "productsupcom/lib-dk-testing",
-            "version": "0.0.18",
+            "version": "0.0.19",
             "source": {
                 "type": "git",
                 "url": "git@github.com:productsupcom/lib-dk-testing.git",
-                "reference": "5f84927feaba16717ccd841adb979deadded550f"
+                "reference": "d9552192a1d5ecdcfad6d521faf9d115736ffd7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/productsupcom/lib-dk-testing/zipball/5f84927feaba16717ccd841adb979deadded550f",
-                "reference": "5f84927feaba16717ccd841adb979deadded550f",
+                "url": "https://api.github.com/repos/productsupcom/lib-dk-testing/zipball/d9552192a1d5ecdcfad6d521faf9d115736ffd7a",
+                "reference": "d9552192a1d5ecdcfad6d521faf9d115736ffd7a",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2189,9 +2189,9 @@
                 "proprietary"
             ],
             "support": {
-                "source": "https://github.com/productsupcom/lib-dk-testing/tree/0.0.18"
+                "source": "https://github.com/productsupcom/lib-dk-testing/tree/0.0.19"
             },
-            "time": "2024-11-29T13:10:04+00:00"
+            "time": "2024-12-05T16:43:36+00:00"
         },
         {
             "name": "productsupcom/lib-sqlite",
